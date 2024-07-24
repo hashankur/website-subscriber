@@ -19,6 +19,7 @@ class PostFactory extends Factory
         return [
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
+            "website" => fake()->domainName(),
         ];
     }
 }

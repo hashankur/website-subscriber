@@ -36,6 +36,7 @@ class PostTest extends TestCase
         $row = [
             "title" => "Test Post",
             "description" => "Description for test post",
+            "website" => "https://www.example.com",
         ];
         $response = $this->postJson("/api/posts", $row);
 

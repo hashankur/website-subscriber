@@ -34,10 +34,12 @@ class PostController extends Controller
         $request->validate([
             "title" => "required|string|max:255",
             "description" => "required|string",
+            "website" => "required|string",
         ]);
         $post = new Post([
             "title" => $request->input("title"),
             "description" => $request->input("description"),
+            "website" => $request->input("website"),
         ]);
         $post->save();
 
