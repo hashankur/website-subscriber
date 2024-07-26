@@ -37,6 +37,7 @@ php artisan serve
 
 # Start frontend
 cd vue
+npm install
 npm run dev
 ```
 

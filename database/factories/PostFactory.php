@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Website;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,9 @@ class PostFactory extends Factory
         return [
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
-            "website" => fake()->domainName(),
+            "website" => Website::factory()
+                ->createOne()
+                ->getAttribute("domain"),
         ];
     }
 }

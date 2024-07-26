@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Website;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class WebsiteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Website::latest()->get();
         return response()->json($posts);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
     {
         //
     }
@@ -29,20 +29,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the request data
-        $request->validate([
-            "title" => "required|string|max:255",
-            "description" => "required|string",
-            "website" => "required|string",
-        ]);
-        $post = new Post([
-            "title" => $request->input("title"),
-            "description" => $request->input("description"),
-            "website" => $request->input("website"),
-        ]);
-        $post->save();
-
-        return response()->json(["created" => true, "post" => $post], 201);
+        //
     }
 
     /**

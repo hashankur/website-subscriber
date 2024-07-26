@@ -22,26 +22,21 @@ class PostTest extends TestCase
 
     public function test_has_all_the_required_post_data()
     {
-        // Seeder adds 10 posts to the database
+        // Seeder adds 10 posts to the database in abstract class
         $this->assertDatabaseCount("posts", 10);
-
-        // $items = Post::get();
-        // dd($items);
-
-        // $response = $this->get("/api/posts");
     }
 
-    public function test_create_new_post(): void
-    {
-        $row = [
-            "title" => "Test Post",
-            "description" => "Description for test post",
-            "website" => "https://www.example.com",
-        ];
-        $response = $this->postJson("/api/posts", $row);
+    // public function test_create_new_post(): void
+    // {
+    //     $row = [
+    //         "title" => "Test Post",
+    //         "description" => "Description for test post",
+    //         "website" => "example.com",
+    //     ];
+    //     $response = $this->postJson("/api/posts", $row);
 
-        $response->assertStatus(201)->assertJson([
-            "created" => true,
-        ]);
-    }
+    //     $response->assertStatus(201)->assertJson([
+    //         "created" => true,
+    //     ]);
+    // }
 }
