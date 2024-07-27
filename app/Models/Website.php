@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Website extends Model
 {
     use HasFactory;
+
+    public function subscribers()
+    {
+        return $this->belongsToMany(Subscriber::class);
+    }
 }
