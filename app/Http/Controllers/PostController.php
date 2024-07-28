@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Website;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -35,12 +36,17 @@ class PostController extends Controller
             "description" => "required|string",
             "website" => "required|string",
         ]);
-        $post = new Post([
+
+        $post = Post::create([
             "title" => $request->input("title"),
             "description" => $request->input("description"),
             "website" => $request->input("website"),
         ]);
-        $post->save();
+
+        // Do not create a new website if it already exists
+        Website::firstOrCreate([
+            "domain" => $request->input("website"),
+        ]);
 
         return response()->json(["created" => true, "post" => $post], 201);
     }

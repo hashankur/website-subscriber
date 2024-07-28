@@ -26,17 +26,17 @@ class PostTest extends TestCase
         $this->assertDatabaseCount("posts", 10);
     }
 
-    // public function test_create_new_post(): void
-    // {
-    //     $row = [
-    //         "title" => "Test Post",
-    //         "description" => "Description for test post",
-    //         "website" => "example.com",
-    //     ];
-    //     $response = $this->postJson("/api/posts", $row);
+    public function test_create_new_post(): void
+    {
+        $row = [
+            "title" => "Test Post",
+            "description" => "Description for test post",
+            "website" => "example.com",
+        ];
+        $response = $this->postJson("/api/posts", $row);
 
-    //     $response->assertStatus(201)->assertJson([
-    //         "created" => true,
-    //     ]);
-    // }
+        $response->assertStatus(201)->assertJson([
+            "created" => true,
+        ]);
+    }
 }
