@@ -19,6 +19,19 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
+A mail provider is required to send emails. The following are the environment variables for Gmail:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=example@gmail.com
+MAIL_PASSWORD=****************
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=example@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
 ### Create Database
 
 ```sh
@@ -45,6 +58,12 @@ npm run dev
 
 ```sh
 php artisan test
+```
+
+## Running the Queue Worker
+
+```sh
+php artisan queue:work
 ```
 
 ## Resources
